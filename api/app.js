@@ -1,10 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const app = express();
 const port = 3000;
-
-const routes = require('./src/routes/user-routes');
 
 //import database url
 const keys = require('./src/config/keys');
@@ -21,12 +20,23 @@ app.listen(port, () => {
     console.log('Server is up in port: '+ port);
 });
 
-//To read the request body
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+//To create a JSON web token
+app.use(passport.initialize());
+app.use(passport.session());
+require('./src/config/passport')(passport);
+
+//parse incomming requests
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//Required routes
+const UserRoutes = require('./src/routes/user-routes');
+const AuthRoutes = require('./src/routes/auth-routes');
 
 //create connection to the routes
-app.use('/api',urlencodedParser,routes);
+app.use('/register',UserRoutes);
+app.use('/auth',AuthRoutes);
+
 
 
 
