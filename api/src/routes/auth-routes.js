@@ -46,6 +46,7 @@ router.post('/login', (req,res)=> {
 });
 
 router.post('/profile', passport.authenticate('jwt', { session: false }),function(req, res) {
+    console.log("Success");
     res.send({user:req.user});
 }
 );
