@@ -7,9 +7,8 @@ body {
 }
 
 .wrapper {
-    display: flex;
+    display: inline-block;
     width: 100%;
-    height: 100%;
     align-items: stretch;
 }
 
@@ -43,9 +42,10 @@ a, a:hover, a:focus {
     min-width: 250px;
     max-width: 250px;
     min-height: 100vh;
-    background: #7386D5;
+    background: #2C3E50;
     color: #fff;
     transition: all 0.3s;
+    padding-left: 10px;
 }
 
 #sidebar.active {
@@ -53,8 +53,8 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-    padding: 10px;
-    background: #6d7fcc;
+    padding: 7px;
+    background: #4c69cc;
 }
 
 #sidebar ul.components {
@@ -79,7 +79,7 @@ a, a:hover, a:focus {
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #4c69cc;
 }
 ul ul a {
     font-size: 0.9em !important;
