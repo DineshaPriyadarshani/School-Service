@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserRegisterComponent } from './pages/user-register/user-register.component';
+import { UserRegisterComponent } from './pages/index/user-register/user-register.component';
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 import { MenuBarComponent } from './shared/components/menu-bar/menu-bar.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './pages/index/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { IndexComponent } from './pages/index/index.component';
 
-const applicationRoutes:Routes = [
-  { path: 'dashboard', component: HomeComponent},
-  { path: 'register' , component: UserRegisterComponent }
+const applicationRoutes: Routes = [
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
@@ -19,7 +20,9 @@ const applicationRoutes:Routes = [
     NavBarComponent,
     MenuBarComponent,
     UserRegisterComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
