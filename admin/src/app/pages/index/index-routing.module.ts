@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './index.component';
-import { HomeModule } from './home/home.module';
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
     children: [
-      {path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+      {path: '', redirectTo: 'home' },
       {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+      {path: 'user-register', loadChildren: () => import('./user-register/user-register.module').then(m => m.UserRegisterModule)}
     ]
   }
 ];
@@ -19,7 +19,6 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    HomeModule,
     RouterModule.forChild(routes)
   ],
   exports: [RouterModule]

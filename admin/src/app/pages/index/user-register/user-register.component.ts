@@ -9,10 +9,14 @@ import { UserService } from 'src/app/shared/services/user.service';
   providers: [UserService]
 })
 export class UserRegisterComponent implements OnInit {
+  stdId: string;
+  phoneNumber: string;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+  }
+  OnSubmit() {
   }
 
 }

@@ -1,0 +1,35 @@
+.container {
+    justify-content: center;
+}
+
+.card {
+    margin: 5px;
+    justify-content: center;
+}
+
+.card-header {
+    padding: 5px;
+}
+
+.card-header h3 {
+    align-content: center;
+    color: #2C3E50;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+}
+
+.input-field {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    margin-top: 10px;
+    position: relative;
+}
+
+.button-container button {
+    margin: 5px;
+}
+
+

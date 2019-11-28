@@ -1,19 +1,56 @@
-<div class="card" >
-    <form>
-        <fieldset>
-            <legend>User Reister form</legend>
-
-            <div class="form-group">
-                <label for="stdId">Student ID</label>
-                <input type="text" class="form-control" id="stdId" aria-describedby="emailHelp" placeholder="Student ID">
-                <!--            <small id="emailHelp" class="form-text text-muted"></small>-->
+<div class="container card" style="width: 50rem;">
+    <div class="card-header">
+        <h3>User Register Form</h3>
+    </div>
+    <div class="card-body">
+        <form (submit)="OnSubmit()" class="form-group">
+            <div class="row input-field">
+                <div class="col-4">
+                    <label >Student ID:</label>
+                </div>
+                <div class="offset-1 col-6">
+                    <input type="text"  class="form-control" placeholder="Student ID" name="stdId" [(ngModel)]="stdId">
+                </div>
             </div>
-            <div class="form-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+
+            <div class="row input-field">
+                <div class="col-4">
+                    <label >Phone Number:</label>
+                </div>
+                <div class="offset-1 col-6">
+                    <input type="text" class="form-control" placeholder="phone Number" name="phoneNumber" [(ngModel)]="phoneNumber">
+                </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </fieldset>
-    </form>
+            <div class="offset-8 button-container">
+                <button class="btn btn-secondary" type="cancel">Cancel</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
 </div>
+
+
+
+
+
+<!--<div class="card " >-->
+<!--    <form (submit)="OnSubmit()">-->
+<!--        <fieldset>-->
+<!--            <legend>User Reister form</legend>-->
+
+<!--            <div class="form-group">-->
+<!--                <label for="stdId">Student ID</label>-->
+<!--                <input type="text" class="form-control" id="stdId" aria-describedby="emailHelp" placeholder="Student ID" name="stdId" [(ngModel)]="stdId">-->
+<!--                &lt;!&ndash;            <small id="emailHelp" class="form-text text-muted"></small>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="phoneNumber">Phone Number</label>-->
+<!--                <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" name="phoneNumber" [(ngModel)]="phoneNumber">-->
+<!--            </div>-->
+<!--            <button type="cancel" class="btn btn-primary button">Cancel</button>-->
+<!--            <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--        </fieldset>-->
+<!--    </form>-->
+<!--</div>-->
