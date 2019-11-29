@@ -15,6 +15,7 @@ export class UserRegisterComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    console.log('userRgister');
   }
   OnSubmit() {
   }

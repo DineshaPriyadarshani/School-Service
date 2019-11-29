@@ -10,7 +10,7 @@ export class IndexComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('called');
+    console.log('Index called');
   }
 
 }
