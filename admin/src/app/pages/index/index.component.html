@@ -1,12 +1,13 @@
 <div class="pages-wrap">
     <app-nav-bar></app-nav-bar>
     <div class="pages-body">
-        <app-menu-bar></app-menu-bar>
-
-        <div class="pages-content">
-
+        <div class="row">
+            <div style="min-width: 250px;">
+                <app-menu-bar></app-menu-bar>
+            </div>
+            <div class="pages-content">
+                <router-outlet></router-outlet>
+            </div>
         </div>
-
-
     </div>
 </div>
