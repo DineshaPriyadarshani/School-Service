@@ -2,22 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {LoginComponent} from './pages/login/login.component';
-import {UserRegisterComponent} from './pages/index/user-register/user-register.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { UserService } from './shared/services/user.service';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        // LoginComponent,
-        // UserRegisterComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        HttpModule,
+        FlashMessagesModule.forRoot()
     ],
-    providers: [],
+    providers: [UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

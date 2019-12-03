@@ -18,6 +18,15 @@ export class UserRegisterComponent implements OnInit {
     console.log('userRgister');
   }
   OnSubmit() {
+
+    const user = {
+      stdId : this.stdId,
+      phoneNumber : this.phoneNumber,
+      password : 'abc@123'
+    };
+    this.userService.registerUser(user).subscribe(res => {
+      console.log(res);
+    } );
   }
 
 }

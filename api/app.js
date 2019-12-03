@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
@@ -23,6 +24,8 @@ app.listen(port, () => {
 //To create a JSON web token
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
+
 require('./src/config/passport')(passport);
 
 //parse incomming requests
@@ -37,26 +40,22 @@ const AuthRoutes = require('./src/routes/auth-routes');
 app.use('/register',UserRoutes);
 app.use('/auth',AuthRoutes);
 
-
-
-
 // app.post('/login', urlencodedParser, function (req, res) {
 //     console.log('welcome, ' + req.body.phoneNumber)
 //   })
-const cors = require('cors');
 
 
-// app.use(cors({
-//     origin:[
-//         'http://localhost:4200',
-//         'http://127.0.0.1:4200',
-//         'http://localhost:8080',
-//         'http://127.0.0.1:8080',
-//         'http://localhost:3000',
-//         keys.AppUri
-//     ],
-//     credentials:true
-// }));
+app.use(cors({
+    origin:[
+        'http://localhost:4200',
+        'http://127.0.0.1:4200',
+        'http://localhost:8080',
+        'http://127.0.0.1:8080',
+        'http://localhost:3000',
+        keys.mongouri.uri
+    ],
+    credentials:true
+}));
 
 
 //const MongoClient = require('mongodb').MongoClient;
