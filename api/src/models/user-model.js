@@ -8,7 +8,8 @@ const bcrypt = require('bcryptjs');
 const userSchema = new Schema({
     studentId: {type:String, required:true},
     phoneNumber: {type:String, required: true},
-    password: {type:String, required: true}
+    password: {type:String, required: true},
+    isCompleted: {type:Boolean, required:true}
 });
 
 const User=mongoose.model('User',userSchema);

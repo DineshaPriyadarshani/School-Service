@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class UserRegisterComponent implements OnInit {
   stdId: string;
   phoneNumber: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
     console.log('userRgister');
@@ -22,10 +22,15 @@ export class UserRegisterComponent implements OnInit {
     const user = {
       stdId : this.stdId,
       phoneNumber : this.phoneNumber,
-      password : 'abc@123'
+      password : 'abc@123',
+      isCompleted: false
     };
     this.userService.registerUser(user).subscribe(res => {
-      console.log(res);
+      if (res.state) {
+        this.flashMessage.show('Successfully registered', { cssClass: 'alert-success', timeout: 3000});
+      } else {
+        this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000});
+      }
     } );
   }
 
