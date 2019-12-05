@@ -7,7 +7,8 @@ router.post('/',function (req, res) {
     const user = new User({
         studentId: req.body.stdId,
         phoneNumber : req.body.phoneNumber,
-        password : req.body.password
+        password : req.body.password,
+        isCompleted : req.body.isCompleted
     });
 
     User.saveUser(user, function(err, newUser) {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 
 @Component({
@@ -12,9 +14,14 @@ import { AuthService } from '../../shared/services/auth.service';
 export class LoginComponent implements OnInit {
   phoneNumber: string;
   password: string;
-  constructor(private authService: AuthService, private router: Router) { }
+  loginForm: FormGroup;
+  constructor(private authService: AuthService, private router: Router, private flashMessage: FlashMessagesService) { }
 
   ngOnInit() {
+    this.loginForm = new FormGroup({
+      phoneNumber: new FormControl({value: ''}),
+      password: new FormControl({value: ''})
+    });
   }
 
   onLogin() {
@@ -23,7 +30,8 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
     this.authService.loginUser(user).subscribe(res => {
-      console.log(res);
+      this.flashMessage.show('Successfully logged in', { cssClass: 'alert-success', timeout: 3000});
+      this.router.navigate(['/form']);
     });
   }
 

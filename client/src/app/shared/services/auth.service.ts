@@ -15,6 +15,6 @@ export class AuthService {
   loginUser(user) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/login', user, { headers }).pipe(map(res => res.json()));
+    return this.http.post('http://localhost:3000/auth/login', user, { headers }).pipe(map(res => res.json()));
   }
 }
