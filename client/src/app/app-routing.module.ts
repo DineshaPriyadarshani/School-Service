@@ -5,7 +5,7 @@ import { AuthGuard } from './shared/services/auth.guard';
 const routes: Routes = [
   { path: '', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
-  { path: 'form', loadChildren: () => import('./pages/form/form.module').then(m => m.FormModule), canActivate : [AuthGuard]}
+  { path: 'form', loadChildren: () => import('./pages/form/form.module').then(m => m.FormModule)}
 ];
 
 @NgModule({

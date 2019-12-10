@@ -15,7 +15,9 @@ export class LoginComponent implements OnInit {
   phoneNumber: string;
   password: string;
   loginForm: FormGroup;
-  constructor(private authService: AuthService, private router: Router, private flashMessage: FlashMessagesService) { }
+
+  constructor(private authService: AuthService, private router: Router, private flashMessage: FlashMessagesService) {
+  }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -30,9 +32,14 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
     this.authService.loginUser(user).subscribe(res => {
-      this.flashMessage.show('Successfully logged in', { cssClass: 'alert-success', timeout: 3000});
-      this.router.navigate(['/form']);
+      this.flashMessage.show('Successfully logged in', {cssClass: 'alert-success', timeout: 3000});
+      this.router.navigate(['form']).then(e => {
+        if (e) {
+          console.log('Navigation is successful!');
+        } else {
+          console.log('Navigation has failed!');
+        }
+      });
     });
   }
-
 }
