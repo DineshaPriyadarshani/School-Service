@@ -7,11 +7,15 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 
 @NgModule({
-  declarations: [
-      IndexComponent,
-      MenuBarComponent,
-      NavBarComponent
-  ],
+    declarations: [
+        IndexComponent,
+        MenuBarComponent,
+        NavBarComponent
+    ],
+    exports: [
+        MenuBarComponent,
+        NavBarComponent
+    ],
     imports: [
         CommonModule,
         IndexRoutingModule,

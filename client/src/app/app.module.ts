@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth.guard';
 import { IndexComponent } from './pages/index/index.component';
+import { IndexModule } from './pages/index/index.module';
+
 
 
 @NgModule({
@@ -29,21 +31,23 @@ import { IndexComponent } from './pages/index/index.component';
     AppComponent,
     IndexComponent
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatCardModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    HttpModule,
-    FlashMessagesModule.forRoot()
-  ],
+    imports: [
+        CommonModule,
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        MatCardModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        HttpModule,
+        FlashMessagesModule.forRoot(),
+        IndexModule,
+        IndexModule
+    ],
   providers: [
     AuthService,
     AuthGuard
