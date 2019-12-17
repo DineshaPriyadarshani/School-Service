@@ -7,19 +7,42 @@
             <form (submit)="OnSubmit()" class="form-group">
                 <div class="row input-field">
                     <div class="offset-1 col-2">
-                        <label >Student ID:</label>
+                        <label >Name:</label>
                     </div>
                     <div class="offset-1 col-6">
-                        <input type="text"  class="form-control" placeholder="Student ID" name="stdId" [(ngModel)]="stdId">
+                        <input type="text"  class="form-control" placeholder="Name" name="name" [(ngModel)]="name">
                     </div>
                 </div>
-
                 <div class="row input-field">
                     <div class="offset-1 col-2">
                         <label >Phone Number:</label>
                     </div>
                     <div class="offset-1 col-6">
                         <input type="text" class="form-control" placeholder="phone Number" name="phoneNumber" [(ngModel)]="phoneNumber">
+                    </div>
+                </div>
+                <div class="row input-field">
+                    <div class="offset-1 col-2">
+                        <label >Address:</label>
+                    </div>
+                    <div class="offset-1 col-6">
+                        <input type="text" class="form-control" placeholder="Address" name="address" [(ngModel)]="address">
+                    </div>
+                </div>
+                <div class="row input-field">
+                    <div class="offset-1 col-2">
+                        <label >Occupation:</label>
+                    </div>
+                    <div class="offset-1 col-6">
+                        <input type="text" class="form-control" placeholder="Occupation" name="occupation" [(ngModel)]="occupation">
+                    </div>
+                </div>
+                <div class="row input-field">
+                    <div class="offset-1 col-2">
+                        <label >Work Place Conatct Number:</label>
+                    </div>
+                    <div class="offset-1 col-6">
+                        <input type="text" class="form-control" placeholder="Work lace Contact Number" name="contactNumber" [(ngModel)]="contactNumber">
                     </div>
                 </div>
 

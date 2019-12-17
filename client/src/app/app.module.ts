@@ -21,15 +21,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import services
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth.guard';
-import { IndexComponent } from './pages/index/index.component';
-import { IndexModule } from './pages/index/index.module';
-
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    IndexComponent
+    AppComponent
   ],
     imports: [
         CommonModule,
@@ -44,9 +40,7 @@ import { IndexModule } from './pages/index/index.module';
         BrowserAnimationsModule,
         HttpClientModule,
         HttpModule,
-        FlashMessagesModule.forRoot(),
-        IndexModule,
-        IndexModule
+        FlashMessagesModule.forRoot()
     ],
   providers: [
     AuthService,

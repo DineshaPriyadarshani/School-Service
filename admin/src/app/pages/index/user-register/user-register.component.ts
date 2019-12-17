@@ -9,8 +9,11 @@ import { UserService } from 'src/app/shared/services/user.service';
   providers: [UserService]
 })
 export class UserRegisterComponent implements OnInit {
-  stdId: string;
+  name: string;
   phoneNumber: string;
+  address: string;
+  occupation: string;
+  contactNumber: string;
 
   constructor(private userService: UserService, private flashMessage: FlashMessagesService) { }
 
@@ -20,10 +23,12 @@ export class UserRegisterComponent implements OnInit {
   OnSubmit() {
 
     const user = {
-      stdId : this.stdId,
+      name : this.name,
       phoneNumber : this.phoneNumber,
-      password : 'abc@123',
-      isCompleted: false
+      address : this.address,
+      occupation : this.occupation,
+      contactNumber : this.contactNumber,
+      password : 'abc@123'
     };
     this.userService.registerUser(user).subscribe(res => {
       if (res.state) {

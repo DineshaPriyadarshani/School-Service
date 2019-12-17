@@ -5,10 +5,12 @@ const User = require('../models/user-model');
 router.post('/',function (req, res) {
     console.log('route call');
     const user = new User({
-        studentId: req.body.stdId,
+        name : req.body.name,
         phoneNumber : req.body.phoneNumber,
-        password : req.body.password,
-        isCompleted : req.body.isCompleted
+        address : req.body.address,
+        occupation : req.body.occupation,
+        contactNumber : req.body.contactNumber,
+        password : req.body.password
     });
 
     User.saveUser(user, function(err, newUser) {

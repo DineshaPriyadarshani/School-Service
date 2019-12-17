@@ -6,10 +6,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new Schema({
-    studentId: {type:String, required:true},
+    name: {type:String, required: true},
     phoneNumber: {type:String, required: true},
-    password: {type:String, required: true},
-    isCompleted: {type:Boolean, required:true}
+    address: {type:String, required:true},
+    occupation: {type:String, required:true},
+    contactNumber: {type:String, required:true},
+    password: {type:String, required: true}
 });
 
 const User=mongoose.model('User',userSchema);

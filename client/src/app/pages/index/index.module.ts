@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MenuBarComponent} from './components/menu-bar/menu-bar.component';
-import {NavBarComponent} from './components/nav-bar/nav-bar.component';
-import { HomeComponent } from './home/home.component';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { IndexRoutingModule } from './index-routing.module';
+import { IndexComponent } from './index.component';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 
 
@@ -10,13 +12,16 @@ import { HomeComponent } from './home/home.component';
     declarations: [
         MenuBarComponent,
         NavBarComponent,
-        HomeComponent
+        IndexComponent
     ],
     exports: [
-        NavBarComponent
+        NavBarComponent,
+        MenuBarComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        IndexRoutingModule,
+        FlashMessagesModule
     ]
 })
 export class IndexModule { }
