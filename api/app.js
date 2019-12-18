@@ -37,7 +37,7 @@ const UserRoutes = require('./src/routes/user-routes');
 const AuthRoutes = require('./src/routes/auth-routes');
 
 //create connection to the routes
-app.use('/register',UserRoutes);
+app.use('/user',UserRoutes);
 app.use('/auth',AuthRoutes);
 
 // app.post('/login', urlencodedParser, function (req, res) {

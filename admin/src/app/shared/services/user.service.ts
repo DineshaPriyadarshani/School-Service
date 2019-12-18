@@ -12,7 +12,7 @@ export class UserService {
   registerUser(user) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/register', user , { headers }).pipe(map(res => res.json()));
+    return this.http.post('http://localhost:3000/user', user , { headers }).pipe(map(res => res.json()));
   }
 
 }

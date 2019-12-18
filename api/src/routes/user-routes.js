@@ -24,4 +24,17 @@ router.post('/',function (req, res) {
     
 });
 
+router.get('/:phoneNumber', (req, res) => {
+   console.log("Get user");
+   User.findByPhoneNumber(req.params.phoneNumber)
+       .exec(function (err, User) {
+           if(err) {
+               console.log("Error while getting user");
+           }
+           else {
+               res.json(User);
+           }
+       })
+});
+
 module.exports = router;
