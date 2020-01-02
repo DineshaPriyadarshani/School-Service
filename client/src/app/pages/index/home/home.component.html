@@ -1,10 +1,31 @@
 <div class="card">
     <div class="card-header">
-        Featured
+        <button class="btn btn-sm btn-info mr-1"  placement="top"
+                 container="body">
+            <i class="fa fa-fw fa-edit" aria-hidden="true" placement="bottom"></i>
+        </button>
     </div>
     <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">It's a broader card with text below as a natural lead-in to extra content. This content is a little longer.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="row col-12">
+            <label class="col-4">Name </label>
+            <p>{{ name }}</p>
+        </div>
+        <div class="row">
+            <label class="col-4">Phone Number </label>
+            <p>{{ phoneNumber }}</p>
+        </div>
+        <div class="row">
+            <label class="col-4">Address </label>
+            <p>{{ address }}</p>
+        </div>
+        <div class="row">
+            <label class="col-4">Occupation </label>
+            <p>{{ occupation }}</p>
+        </div>
+        <div class="row">
+            <label class="col-4">Work place contact number </label>
+            <p>{{ contactNumber }}</p>
+        </div>
+
     </div>
 </div>
