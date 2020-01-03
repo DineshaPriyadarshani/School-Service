@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       password: this.password
     };
     this.authService.loginUser(user).subscribe(res => {
-      //this.flashMessage.show('Successfully logged in', {cssClass: 'alert-success', timeout: 3000});
+      // this.flashMessage.show('Successfully logged in', {cssClass: 'alert-success', timeout: 3000});
       this.router.navigate(['home']).then(e => {
         if (e) {
           localStorage.setItem('phoneNumber', this.phoneNumber);
