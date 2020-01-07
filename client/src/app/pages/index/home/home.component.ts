@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../shared/services/api.service';
 import { AuthService } from '../../../shared/services/auth.service';
+import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +10,33 @@ import { AuthService } from '../../../shared/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+    public form: FormGroup;
   private name: string;
   private address: string;
   private phoneNumber: string;
   private occupation: string;
   private contactNumber: string;
-  constructor(private apiService: ApiService, private router: Router, private authService: AuthService) { }
+  constructor(private apiService: ApiService, private router: Router, private authService: AuthService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getUsers();
   }
+
+    public initVariablesArray() {
+        return this._formBuilder.group({
+            name: ['', [Validators.required]],
+            type: ['', [Validators.required]],
+            validator_name: ['', [Validators.required]],
+            validation_policy: ['', [Validators.required]],
+        });
+    }
+
+    public get formData() { return this.form.get('variables') as FormArray; }
+
+    public addRange() {
+        const control = this.form.controls['variables'] as FormArray;
+        control.push(this.initVariablesArray());
+    }
 
   private getUsers() {
       const id = localStorage.getItem('phoneNumber');

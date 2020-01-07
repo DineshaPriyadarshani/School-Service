@@ -27,5 +27,93 @@
             <p>{{ contactNumber }}</p>
         </div>
 
+        <ngb-accordion  activeIds="ngb-panel-0">
+            <ngb-panel  title="Application Attributes">
+                <ng-template ngbPanelContent>
+                    <div *ngIf="formData.controls && formData.controls.length === 0" class="row">
+                        <div class="col-3">
+                            <button (click)="addRange()" class="btn btn-primary">
+                                Application Attributes
+                            </button>
+                        </div>
+                    </div>
+                    <div formArrayName="variables" class="form-group mt-1">
+                        <div *ngIf="formData.controls && formData.controls.length > 0" class="row d-none d-xl-flex">
+                            <div class="form-group col-5 required mb-0 text-center">
+                                <label>Name</label>
+                            </div>
+                            <div class="form-group col-5 required mb-0 text-center">
+                                <label>Value</label>
+                            </div>
+                        </div>
+
+                        <div *ngFor="let ranges of formData.controls;  let i=index">
+                            <div >
+                                <div class="row">
+                                    <div class="form-group col-xl-5">
+                                        <div class="d-block d-xl-none">
+                                            <label>Name</label>
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="name">
+                                        <div *ngIf="!formData.controls[i].controls.name?.valid" class="required-field">
+                                            <div *ngIf="formData.controls[i].controls.name?.errors.pattern && formData.controls[i].controls.name?.dirty" >
+                                                Invalid value
+                                            </div>
+                                            <div *ngIf="formData.controls[i].controls.name?.errors.required && formData.controls[i].controls.name?.dirty" >
+                                                Required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-xl-5">
+                                        <div class="d-block d-xl-none">
+                                            <label>Value</label>
+                                        </div>
+                                        <input type="text" class="form-control" formControlName="type">
+                                        <div *ngIf="!formData.controls[i].controls.type?.valid" class="required-field">
+                                            <div *ngIf="formData.controls[i].controls.type?.errors.required && formData.controls[i].controls.type?.dirty" >
+                                                Required
+                                            </div>
+                                            <div *ngIf="formData.controls[i].controls.type?.errors.pattern && formData.controls[i].controls.type?.dirty" >
+                                                Invalid value
+                                            </div>
+                                            <div *ngIf="formData.controls[i].controls.type?.errors.conditionalRequired && formData.controls[i].controls.type?.dirty" >
+                                                conditionalRequired
+                                            </div>
+                                            <div *ngIf="formData.controls[i].controls.type?.errors.validateControllerTo && formData.controls[i].controls.type?.dirty" >
+                                                Invalid range
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-xl-1">
+                                        <div class="col-xl-1">
+                                                <span class="form-group" style="display: inline;">
+                                                    <button id="removeRange" type="button" class="close" aria-label="Close" (click)="removeRange(i)">
+                                                        <i class="fa fa-minus-circle" style="color:red;" aria-hidden="true"></i>
+                                                    </button>
+                                                </span>
+                                            <span class="form-group" style="display: inline;">
+                                                    <button *ngIf="(formData.controls[i].controls.name?.valid && formData.controls[i].controls.type?.valid)
+                                                       && (formData.controls[i].controls.validator_name?.valid && formData.controls[i].controls.validation_policy?.valid);
+                                                       else inactiveButton" type="button" class="close " aria-label="Close" (click)="addRange()">
+                                                        <i class="fa fa-plus-circle active-button" aria-hidden="true"></i>
+                                                    </button>
+                                                    <ng-template #inactiveButton>
+                                                        <button type="button" class="close " aria-label="Close">
+                                                            <i class="fa fa-plus-circle inactive-button" aria-hidden="true"></i>
+                                                        </button>
+                                                    </ng-template>
+                                                </span>
+                                        </div>
+                                    </div>
+                                    <hr class="d-xl-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
     </div>
 </div>
