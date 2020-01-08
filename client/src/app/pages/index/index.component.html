@@ -1,14 +1,5 @@
-<div class="pages-wrap">
-    <app-nav-bar></app-nav-bar>
-    <div class="pages-body">
-        <div class="row">
-            <div style="min-width: 250px;">
-                <app-menu-bar></app-menu-bar>
-            </div>
-            <div class="npages-content">
-                <flash-messages></flash-messages>
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
-</div>
+<app-nav-bar></app-nav-bar>
+<app-menu-bar></app-menu-bar>
+<section class="main-container">
+    <router-outlet></router-outlet>
+</section>

@@ -12,7 +12,7 @@ export class ApiService {
   getUsers() {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get('https://school-service.free.beeceptor.com/users', { headers }).pipe(map(res => res.json()));
+    return this.http.get('https://schoolservice.free.beeceptor.com/users', { headers }).pipe(map(res => res.json()));
   }
 
 }

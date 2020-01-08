@@ -9,7 +9,7 @@ import {
         MatFormFieldModule,
         MatButtonModule,
         MatInputModule,
-        MatCardModule
+        MatCardModule,
       } from '@angular/material';
 import { CommonModule } from '@angular/common';
 

@@ -11,6 +11,7 @@ import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@ang
 })
 export class HomeComponent implements OnInit {
     public form: FormGroup;
+    public user: any;
   private name: string;
   private address: string;
   private phoneNumber: string;
@@ -20,6 +21,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getUsers();
+    this.form = this._formBuilder.group({
+        name: ['', [Validators.required]],
+        address: [''],
+        phoneNumber: [''],
+        occupation: [''],
+        contactNumber: ['']
+    });
+    this.form.patchValue({
+        name: this.name,
+        address: this.address
+    });
   }
 
     public initVariablesArray() {
