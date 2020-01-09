@@ -1,53 +1,78 @@
 <div class="container card">
     <div class="card-body">
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" novalidate [formGroup]="form">
             <fieldset class="form-group">
                 <div class="row">
-                    <label class="col-4">Name</label>
-                    <input class="form-control col-6" formControlName="name" id="name">
-                </div>
-                <div *ngIf="form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)"  class="required-field">
-                    <div *ngIf="form.controls.name.errors.required">
-                        Name is required
+                    <label class="col-4">Name </label>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="name" id="name" type="text">
+                        <div *ngIf="form.controls.name.invalid && (form.controls.name.dirty || form.controls.name.touched)"  class="required-field">
+                            <div *ngIf="form.controls.name.errors.required">
+                                Name is required
+                            </div>
+                        </div>
                     </div>
                 </div>
             </fieldset>
             <fieldset class="form-group">
                 <div class="row">
                     <label class="col-4">Phone Number</label>
-                    <input class="form-control col-6" formControlName="phoneNumber" id="phoneNumber">
-                </div>
-                <div *ngIf="form.controls.phoneNumber.invalid && (form.controls.phoneNumber.dirty || form.controls.phoneNumber.touched)"  class="required-field">
-                    <div *ngIf="form.controls.phoneNumber.errors.required">
-                        phoneNumber is required
+                    <div class="col-6">
+                        <input class="form-control" formControlName="phoneNumber" id="phoneNumber"
+                               oninput="Javascript:if(value.length > 0) value = value.replace(/\D/g,'').slice(0, 10);"
+                               onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode <= 57) && this.value.length !== 10;">
+                        <div *ngIf="form.controls.phoneNumber.invalid && (form.controls.phoneNumber.dirty || form.controls.phoneNumber.touched)"  class="required-field">
+                            <div *ngIf="form.controls.phoneNumber.errors.required">
+                                phoneNumber is required
+                            </div>
+                        </div>
                     </div>
                 </div>
             </fieldset>
             <fieldset class="form-group">
                 <div class="row">
                     <label class="col-4">Address</label>
-                    <input class="form-control col-6" formControlName="address" id="address">
+                    <div class="col-6">
+                        <input class="form-control" formControlName="address" id="address" type="text">
+                        <div *ngIf="form.controls.address.invalid && (form.controls.address.dirty || form.controls.address.touched)"  class="required-field">
+                            <div *ngIf="form.controls.address.errors.required">
+                                Address is required
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div *ngIf="form.controls.address.invalid && (form.controls.address.dirty || form.controls.address.touched)"  class="required-field">
-                    <div *ngIf="form.controls.address.errors.required">
-                        Address is required
+            </fieldset>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label class="col-4">Occupation</label>
+                    <div class="col-6">
+                        <input class="form-control" formControlName="occupation" id="occupation" type="text">
+                        <div *ngIf="form.controls.occupation.invalid && (form.controls.occupation.dirty || form.controls.occupation.touched)"  class="required-field">
+                            <div *ngIf="form.controls.occupation.errors.required">
+                                Work place contact number is required
+                            </div>
+                        </div>
                     </div>
                 </div>
             </fieldset>
             <fieldset class="form-group">
                 <div class="row">
                     <label class="col-4">Work place contact number</label>
-                    <input class="form-control col-6" formControlName="contactNumber" id="contactNumber">
-                </div>
-                <div *ngIf="form.controls.contactNumber.invalid && (form.controls.contactNumber.dirty || form.controls.contactNumber.touched)"  class="required-field">
-                    <div *ngIf="form.controls.contactNumber.errors.required">
-                        Work place contact number is required
+                    <div class="col-6">
+                        <input class="form-control" formControlName="contactNumber" id="contactNumber"
+                               oninput="Javascript:if(value.length > 0) value = value.replace(/\D/g,'').slice(0, 10);"
+                               onkeypress="return (event.charCode >= 48 &amp;&amp; event.charCode <= 57) && this.value.length !== 10;">
+                        <div *ngIf="form.controls.contactNumber.invalid && (form.controls.contactNumber.dirty || form.controls.contactNumber.touched)"  class="required-field">
+                            <div *ngIf="form.controls.contactNumber.errors.required">
+                                Work place contact number is required
+                            </div>
+                        </div>
                     </div>
                 </div>
             </fieldset>
         </form>
-        <button class="btn btn-sm btn-info mr-1"  placement="top" container="body">
-            <i class="fa fa-fw fa-edit" aria-hidden="true" placement="bottom"></i>
+        <button class="btn btn-sm btn-info mr-1"  placement="top" container="body" (click)="editUser()">
+            Edit
         </button>
 <!--        <ngb-accordion  activeIds="ngb-panel-0">-->
 <!--            <ngb-panel  title="Application Attributes">-->

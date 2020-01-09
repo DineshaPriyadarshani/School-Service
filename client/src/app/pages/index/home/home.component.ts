@@ -12,11 +12,7 @@ import { FormArray, FormBuilder, FormGroup, Validators, FormControl } from '@ang
 export class HomeComponent implements OnInit {
     public form: FormGroup;
     public user: any;
-  private name: string;
-  private address: string;
-  private phoneNumber: string;
-  private occupation: string;
-  private contactNumber: string;
+
   constructor(private apiService: ApiService, private router: Router, private authService: AuthService, private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -24,14 +20,11 @@ export class HomeComponent implements OnInit {
     this.form = this._formBuilder.group({
         name: ['', [Validators.required]],
         address: [''],
-        phoneNumber: [''],
+        phoneNumber: ['', [Validators.required]],
         occupation: [''],
-        contactNumber: ['']
+        contactNumber: ['', [Validators.required]]
     });
-    this.form.patchValue({
-        name: this.name,
-        address: this.address
-    });
+    this.form.disable();
   }
 
     public initVariablesArray() {
@@ -53,14 +46,18 @@ export class HomeComponent implements OnInit {
   private getUsers() {
       const id = localStorage.getItem('phoneNumber');
       this.apiService.getUsers().subscribe(data => {
-          console.log(data);
-          this.name = data.name;
-          this.address = data.address;
-          this.phoneNumber = data.phoneNumber;
-          this.occupation = data.occupation;
-          this.contactNumber = this.contactNumber;
-
+          this.user = data;
+          this.form.setValue({
+              name: this.user[0].name,
+              address: this.user[0].address,
+              phoneNumber: this.user[0].phoneNumber,
+              occupation: this.user[0].occupation,
+              contactNumber: this.user[0].contactNumber
+          });
       });
   }
 
+  public editUser() {
+      this.form.enable();
+  }
 }
