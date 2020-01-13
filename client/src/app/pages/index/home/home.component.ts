@@ -30,18 +30,24 @@ export class HomeComponent implements OnInit {
     public initVariablesArray() {
         return this._formBuilder.group({
             name: ['', [Validators.required]],
-            type: ['', [Validators.required]],
-            validator_name: ['', [Validators.required]],
-            validation_policy: ['', [Validators.required]],
+            school: ['', [Validators.required]],
+            class: ['', [Validators.required]],
+            arrival_time: ['', [Validators.required]],
         });
     }
-
-    public get formData() { return this.form.get('variables') as FormArray; }
 
     public addRange() {
         const control = this.form.controls['variables'] as FormArray;
         control.push(this.initVariablesArray());
     }
+
+    public removeRange(i: number) {
+        console.log('i is : ', i);
+        const control = this.form.controls['variables'] as FormArray;
+        control.removeAt(i);
+    }
+
+    public get formData() { return this.form.get('variables') as FormArray; }
 
   private getUsers() {
       const id = localStorage.getItem('phoneNumber');
